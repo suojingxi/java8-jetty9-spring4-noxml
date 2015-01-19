@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>java8-jetty9-spring4-noxml</title>
+</head>
+<body>
+    <p>MyData: <span id="number"></span> & <span id="word"></span> </p>
+</body>
+
+<script type="text/javascript">
+
+document.addEventListener("DOMContentLoaded", function(event) { 
+    var xhr = new XMLHttpRequest();
+    xhr.open( 'GET', '../data', false );
+    xhr.send();
+    var response = JSON.parse( ( "response" in xhr ) ? xhr.response : xhr.responseText );
+    
+    document.getElementById("number").innerHTML = response.number;
+    document.getElementById("word").innerHTML = response.word;
+});
+
+</script>
+</html>
